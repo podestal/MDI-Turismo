@@ -39,10 +39,10 @@ const App = () => {
     <>
       <header className="w-[100%] fixed bg-transparent top-0 left-0 z-10">
         <nav className="h-10 flex justify-between items-center xl:max-w-[1280px] max-w-[850px] m-auto py-12">
-          <a href="#" className="my-4 text-2xl text-slate-100">LOGO</a>
+          <a href="#" className="my-4 text-6xl text-slate-100">LOGO</a>
           {showNav 
           ?
-          <div className="py-12 fixed top-0 left-0 w-[100%] bg-slate-950 backdrop:blur-xl md:text-slate-100 transition-all lg:flex lg:text-slate-950" id="nav-menu">
+          <div className="py-12 fixed top-0 left-0 w-[100%] bg-transparent backdrop-blur-lg md:text-slate-100 transition-all lg:flex lg:text-slate-950" id="nav-menu">
             <ul className="flex text-center flex-col gap-12">
               <li className="nav__item">
                 <a href="#home" className="text-slate-100 font-bold">Inicio</a>
@@ -54,12 +54,15 @@ const App = () => {
                 <a href="#popular" className="text-slate-100 font-bold">Emergencia</a>
               </li>
               <li className="nav__item">
+                <a href="#popular" className="text-slate-100 font-bold">Eventos</a>
+              </li>
+              <li className="nav__item">
                 <a href="#explore" className="text-slate-100 font-bold">Turismo</a>
               </li>
             </ul>
             {/* CLOSE BUTTON */}
-            <div onClick={() => setShowNav(false)} className="lg:hidden absolute top-[1rem] right-[1.5rem]" id="nav-close">
-              <Icon icon={RiCloseLine} size="md"/>
+            <div onClick={() => setShowNav(false)} className="lg:hidden absolute top-[1rem] right-[3.5rem]" id="nav-close">
+              <Icon icon={RiCloseLine} size="xl" color="slate-100"/>
             </div>
           </div>
           :
@@ -75,6 +78,9 @@ const App = () => {
                 <a href="#popular" className="text-slate-100 hover:text-slate-200 hover:border-b-2 hover:pb-2 text-xl font-montserrat font-bold">Emergencia</a>
               </li>
               <li className="nav__item">
+                <a href="#explore" className="text-slate-100 hover:text-slate-200 hover:border-b-2 hover:pb-2 text-xl font-montserrat font-bold">Eventos</a>
+              </li>
+              <li className="nav__item">
                 <a href="#explore" className="text-slate-100 hover:text-slate-200 hover:border-b-2 hover:pb-2 text-xl font-montserrat font-bold">Turismo</a>
               </li>
             </ul>
@@ -82,10 +88,11 @@ const App = () => {
           }
           {/* TOGGLE */}
           <div onClick={() => setShowNav(true)} className="nav__toggle lg:hidden" id="nav-toggle">
-            <Icon icon={RiMenuFill} size="md"/>
+            <Icon icon={RiMenuFill} size="xl" color="slate-100"/>
           </div>
         </nav>
       </header>
+      {/* HERO SECTION */}
       <section className="w-full">
         <div style={{backgroundImage: `url(${slides[current]})`}} className="w-full min-h-[100vh] bg-no-repeat bg-cover bg-left duration-500">
           <div className="min-h-[100vh] xl:max-w-[1280px] max-w-[850px]  flex justify-start items-center m-auto ">
@@ -107,6 +114,9 @@ const App = () => {
             </button>
         </div>
       </section>
+      {/* <section>
+        Servicios
+      </section> */}
     </>
   )
 }
