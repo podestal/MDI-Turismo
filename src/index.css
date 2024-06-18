@@ -1,3 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translatey(-10%);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
+
+.hero_text {
+  animation: 1s ease-in-out 0s 1 slideInFromLeft;
+}
+
+/* @keyframes fadein {
+  0% { position: absolute,
+        opacity: 0, 
+          
+      }
+  100%   { opacity: 1}
+} */
+
+@keyframes topFadeOut {
+  from {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    width: 650px
+  }
+
+  to {
+    position: absolute;
+    top: 20.5%;
+    opacity: 0.4;
+    width: 650px
+  }
+
+  /* 100% {
+    position: absolute;
+    opacity: 0;
+  } */
+}
+
+.fade {
+  animation: topFadeOut 2s;
+  /* animation: 1s ease-in-out 0s 1; */
+}
