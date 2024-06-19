@@ -6,7 +6,7 @@ import heroImg2 from './assets/imgs/mdi-hero3.png'
 import heroImg3 from './assets/imgs/mdi-hero4.png'
 import Carousel from "./components/Carousel"
 import useIsVisible from "./hooks/useIsVisible"
-import { Map } from "@vis.gl/react-google-maps"
+import { Map, AdvancedMarker } from "@vis.gl/react-google-maps"
 
 // const slides = [
 //   './assets/imgs/mdi-hero.png',
@@ -22,7 +22,7 @@ const slides = [
 
 const App = () => {
 
-  const position = { lat: 53.54, lng: 10 }
+  const position = { lat: -17.000, lng: -72.096 }
 
   const ref1 = useRef()
   const isVisible1 = useIsVisible(ref1)
@@ -125,8 +125,12 @@ const App = () => {
             </button>
         </div>
       </section>
-      <div>
-        <Map zoom={9} center={position}></Map>
+      <div className="h-[50vh]">
+        <Map zoom={17} center={position} mapId={'5b0544206c64700'}>
+          <AdvancedMarker position={position}>
+
+          </AdvancedMarker>
+        </Map>
       </div>
       <section ref={ref1} className={`flex justify-center items-center w-full op transition-opacity ease-in duration-700 ${isVisible1 ? "opacity-100" : "opacity-0"}`}>
         <p className="text-6xl">Eventos</p>
