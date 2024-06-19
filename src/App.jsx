@@ -1,10 +1,12 @@
 import { RiCloseLine, RiMenuFill, RiArrowLeftCircleLine, RiArrowRightCircleLine } from "@remixicon/react"
 import { Icon } from "@tremor/react"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import heroImg from './assets/imgs/mdi-hero.png'
 import heroImg2 from './assets/imgs/mdi-hero3.png'
 import heroImg3 from './assets/imgs/mdi-hero4.png'
 import Carousel from "./components/Carousel"
+import useIsVisible from "./hooks/useIsVisible"
+import { Map } from "@vis.gl/react-google-maps"
 
 // const slides = [
 //   './assets/imgs/mdi-hero.png',
@@ -19,6 +21,15 @@ const slides = [
 ]
 
 const App = () => {
+
+  const position = { lat: 53.54, lng: 10 }
+
+  const ref1 = useRef()
+  const isVisible1 = useIsVisible(ref1)
+  const ref2 = useRef()
+  const isVisible2 = useIsVisible(ref2)
+  const ref3 = useRef()
+  const isVisible3 = useIsVisible(ref3)
 
   const [showNav, setShowNav] = useState(false)
   const [current, setCurrent] = useState(0)
@@ -37,8 +48,8 @@ const App = () => {
 
   return (
     <>
-      <header className="w-[100%] fixed bg-transparent top-0 left-0 z-10">
-        <nav className="h-10 flex justify-between items-center xl:max-w-[1280px] max-w-[850px] m-auto py-12">
+      <header className="w-[100%] fixed bg-transparent top-0 left-0 z-10 scroll-m-1:bg-red-500 backdrop-blur-md">
+        <nav className="h-10 flex justify-between items-center xl:max-w-[1280px] max-w-[850px] m-auto py-12 ">
           <a href="#" className="my-4 text-6xl text-slate-100">LOGO</a>
           {showNav 
           ?
@@ -94,7 +105,7 @@ const App = () => {
       </header>
       {/* HERO SECTION */}
       <section className="w-full">
-        <div style={{backgroundImage: `url(${slides[current]})`}} className="w-full min-h-[100vh] bg-no-repeat bg-cover bg-left duration-500">
+        <div style={{backgroundImage: `url(${slides[current]})`}} className="w-full min-h-[100vh] bg-no-repeat bg-cover bg-left bg-fixed duration-500">
           <div className="min-h-[100vh] xl:max-w-[1280px] max-w-[850px]  flex justify-start items-center m-auto ">
             <div className="w-[45%]">
               <div className=" flex flex-col gap-12 bg-black bg-opacity-[0.6] px-12 py-24 fade rounded-xl w-[650px]">
@@ -114,9 +125,33 @@ const App = () => {
             </button>
         </div>
       </section>
-      {/* <section>
+      <div>
+        <Map zoom={9} center={position}></Map>
+      </div>
+      <section ref={ref1} className={`flex justify-center items-center w-full op transition-opacity ease-in duration-700 ${isVisible1 ? "opacity-100" : "opacity-0"}`}>
+        <p className="text-6xl">Eventos</p>
+      </section>
+      <section className="h-[100vh]">
+        <p>Turismo</p>
+        <p>- Bosque de piedras</p>
+        <p>- Islas Alvisuri</p>
+        <p>- Caleta</p>
+      </section>
+      <section ref={ref2} className={`flex flex-col justify-center items-center w-full op transition-opacity ease-in duration-700 ${isVisible2 ? "opacity-100" : "opacity-0"}`}>
+        {console.log('isVisible1', isVisible2)}
+        <p className="text-6xl">Eventos</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis cumque vitae perspiciatis rem eaque dicta repellendus quas, inventore assumenda ex quod voluptatibus quae, tenetur quo, quia facere dolores. Cum, sint.</p>
+      </section>
+      <section className="h-[100vh]">
+        Emergencia
+      </section>
+      <section>
         Servicios
-      </section> */}
+      </section>
+      <section ref={ref3} className={`flex justify-center items-center w-full h-[100vh] op transition-opacity ease-in duration-700 ${isVisible3 ? "opacity-100" : "opacity-0"}`}>
+        {console.log('isVisible1', isVisible3)}
+        <p className="text-6xl">Eventos</p>
+      </section>
     </>
   )
 }
