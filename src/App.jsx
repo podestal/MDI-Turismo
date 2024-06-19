@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react"
 import heroImg from './assets/imgs/mdi-hero.png'
 import heroImg2 from './assets/imgs/mdi-hero3.png'
 import heroImg3 from './assets/imgs/mdi-hero4.png'
+import heroImg4 from './assets/imgs/mdi-hero5.png'
+import evento1 from './assets/imgs/evento-1.jpeg'
+import evento2 from './assets/imgs/evento-2.jpeg'
 import Carousel from "./components/Carousel"
 import useIsVisible from "./hooks/useIsVisible"
 import { Map, AdvancedMarker } from "@vis.gl/react-google-maps"
@@ -15,9 +18,10 @@ import { Map, AdvancedMarker } from "@vis.gl/react-google-maps"
 // ]
 
 const slides = [
+  heroImg3,
   heroImg,
   heroImg2,
-  heroImg3
+  heroImg4
 ]
 
 const App = () => {
@@ -89,10 +93,10 @@ const App = () => {
                 <a href="#popular" className="text-slate-100 hover:text-slate-200 hover:border-b-2 hover:pb-2 text-xl font-montserrat font-bold">Emergencia</a>
               </li>
               <li className="nav__item">
-                <a href="#explore" className="text-slate-100 hover:text-slate-200 hover:border-b-2 hover:pb-2 text-xl font-montserrat font-bold">Eventos</a>
+                <a href="#eventos" className="text-slate-100 hover:text-slate-200 hover:border-b-2 hover:pb-2 text-xl font-montserrat font-bold">Eventos</a>
               </li>
               <li className="nav__item">
-                <a href="#explore" className="text-slate-100 hover:text-slate-200 hover:border-b-2 hover:pb-2 text-xl font-montserrat font-bold">Turismo</a>
+                <a href="#turismo" className="text-slate-100 hover:text-slate-200 hover:border-b-2 hover:pb-2 text-xl font-montserrat font-bold">Turismo</a>
               </li>
             </ul>
           </div>
@@ -125,15 +129,127 @@ const App = () => {
             </button>
         </div>
       </section>
-      <div className="h-[50vh]">
+      {/* MAPS */}
+      {/* <div className="h-[50vh]">
         <Map zoom={17} center={position} mapId={'5b0544206c64700'}>
           <AdvancedMarker position={position}>
 
           </AdvancedMarker>
         </Map>
-      </div>
-      <section ref={ref1} className={`flex justify-center items-center w-full op transition-opacity ease-in duration-700 ${isVisible1 ? "opacity-100" : "opacity-0"}`}>
-        <p className="text-6xl">Eventos</p>
+      </div> */}
+      <section id="eventos" className={`flex flex-col justify-center items-center xl:max-w-[1280px] max-w-[850px] mx-auto my-20`}>
+
+        <h3 ref={ref1} className={`text-6xl font-montserrat font-bold mt-[7rem] transition-opacity ease-in duration-700 ${isVisible1 ? "opacity-100" : "opacity-0"}`}>Eventos</h3>
+        <div ref={ref1} className={`w-[50%] self-start flex justify-between items-center mt-12 rounded-3xl gap-10 border shadow-2xl transition-opacity ease-in duration-700 ${isVisible1 ? "opacity-100" : "opacity-0"}`}>
+          <div className="w-full relative z-10">
+          <div style={{backgroundImage: `url(${slides[current]})`}} className="absolute w-full opacity-20 h-[100%] z-0 bg-cover rounded-3xl">
+        </div>
+            <h3 className="text-4xl font-poppins font-semibold my-10 px-10">Viernes 28 de Julio</h3>
+            <ul className="px-10">
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">10:00 am: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Desfile Cívico Escolar Militar</p>
+                  <p className="text-xl">Avenida Arequipa</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">12:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Santos Sabores | Festival Gastronómico</p>
+                  <p className="text-xl">Plaza Miguel Grau</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">03:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Pasacalle Folclórico</p>
+                  <p className="text-xl">"San Pedro y San Pablo"</p>
+                  <p className="text-xl">Avenida Arequipa</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">07:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Misa de Vísperas</p>
+                  <p className="text-xl">Templo Señor del Mar</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">08:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Noche de Talentos: Tradición del Mar</p>
+                  <p className="text-xl">Plaza Miguel Grau</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">09:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">San Pedro y San Pablo Tradición del Mar Serenata</p>
+                  <p className="text-xl">Avenida Arequipa</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          {/* <div className="w-[50%]">
+            <img src={heroImg} alt="" />
+          </div> */}
+        </div>
+        <div ref={ref2} className={`w-[50%] flex justify-center items-center self-end mt-12 rounded-3xl p-10 gap-10 border shadow-2xl transition-opacity ease-in duration-700 ${isVisible2 ? "opacity-100" : "opacity-0"}`}>
+        {/* <div className="w-[50%]">
+          <img src={heroImg} alt="" />
+        </div> */}
+        <div className="w-full">
+            <h3 className="text-4xl font-poppins font-semibold my-10">Viernes 29 de Julio</h3>
+            <ul>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">10:00 am: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Desfile Cívico Escolar Militar</p>
+                  <p className="text-xl">Avenida Arequipa</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">12:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Santos Sabores | Festival Gastronómico</p>
+                  <p className="text-xl">Plaza Miguel Grau</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">03:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Pasacalle Folclórico</p>
+                  <p className="text-xl">"San Pedro y San Pablo"</p>
+                  <p className="text-xl">Avenida Arequipa</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">07:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Misa de Vísperas</p>
+                  <p className="text-xl">Templo Señor del Mar</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">08:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">Noche de Talentos: Tradición del Mar</p>
+                  <p className="text-xl">Plaza Miguel Grau</p>
+                </div>
+              </li>
+              <li className="grid grid-cols-3 gap-10 my-4">
+                <p className="text-xl font-semibold">09:00 pm: </p>
+                <div className="col-span-2">
+                  <p className="text-xl">San Pedro y San Pablo Tradición del Mar Serenata</p>
+                  <p className="text-xl">Avenida Arequipa</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {/* <div className="w-full h-[100vh] bg- bg-center bg-no-repeat rounded-lg" style={{backgroundImage: `url(${evento1})`}}></div>
+        <div className="w-full h-[100vh] bg-center bg-no-repeat rounded-lg" style={{backgroundImage: `url(${evento2})`}}></div> */}
       </section>
       <section className="h-[100vh]">
         <p>Turismo</p>
@@ -141,7 +257,7 @@ const App = () => {
         <p>- Islas Alvisuri</p>
         <p>- Caleta</p>
       </section>
-      <section ref={ref2} className={`flex flex-col justify-center items-center w-full op transition-opacity ease-in duration-700 ${isVisible2 ? "opacity-100" : "opacity-0"}`}>
+      <section className={`flex flex-col justify-center items-center w-full `}>
         {console.log('isVisible1', isVisible2)}
         <p className="text-6xl">Eventos</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis cumque vitae perspiciatis rem eaque dicta repellendus quas, inventore assumenda ex quod voluptatibus quae, tenetur quo, quia facere dolores. Cum, sint.</p>
